@@ -1,0 +1,162 @@
+body{
+  background-color: rgb(164, 195, 207);
+}
+input{
+  width: 90%;
+  margin: .3rem;
+  border-radius: .5rem;
+}
+label{
+  margin-top: .5rem;
+}
+.headerBar{
+  height: 4rem;
+  background-color: rgba(193, 193, 193, 0.75);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.86);
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+}
+
+.logo{
+  height:3rem;
+  width: auto;
+}
+.mainContainer{
+  text-align: center;
+}
+.mainImage{
+  height: 38rem;
+  width: 100%;
+  border-radius: 1rem;
+  border: .2rem solid black;
+}
+.mainTitle{
+  border-radius: 1rem;
+  background-color: rgba(0, 0, 0, 0.31);
+  border: .2rem solid black;
+}
+.mainBox{
+  margin: 1rem;
+  width: 48%;
+}
+.sidebarItem{
+  margin-top: 1rem;
+  padding: .5rem;
+  height: 23rem;
+  background-color: rgba(0, 0, 0, 0.31);
+  border: .2rem solid black;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.86);
+}
+.sidebarImg{
+  height: 7rem;
+  width: 7rem;
+  border-radius: .5rem;
+  border: .1rem solid black;
+}
+.pushLow{
+  margin-top: 6rem;
+}
+.spacer{
+  height:5rem;
+}
+.assocBox{
+  background-color: rgba(30, 131, 138, 0.15);
+  border: .1rem solid black;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
+  margin: 1rem;
+}
+
+.mainBody{
+  background-color: rgba(0, 0, 0, 0.31);
+  border: .2rem solid black;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.86);
+}
+.displayImg{
+  height: 20rem;
+  width: auto;
+  border-radius: .5rem;
+  border: .1rem solid black;
+}
+.bookItem{
+  border-bottom: .1rem solid black;
+  padding:1rem;
+}
+.authorItem{
+  border-bottom: .1rem solid black;
+  padding:1rem;
+}
+.editBtn{
+  border-radius: .5rem;
+}
+.delBtn{
+  border-radius: .5rem;
+}
+.editSub{
+  text-align: center;
+  height: 4rem;
+  width: 80%;
+  border-radius: .5rem;
+  border: .1rem solid black;
+  background-color: rgb(85, 162, 153);
+  margin-bottom: 1rem;
+  margin-left: 10%;
+}
+.deleteSub{
+  text-align: center;
+  height: 4rem;
+  width: 80%;
+  border-radius: .5rem;
+  border: .1rem solid black;
+  background-color: rgb(201, 96, 96);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 10%;
+}
+
+.botBorder{
+  border-bottom: .1rem solid black;
+}
+.center{
+  text-align: center;
+}
+.inline{
+  display: inline-block;
+}
+.zero{
+  margin:0;
+  padding:0;
+}
+
+a:link{
+  color: black;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.26);
+}
+a:hover{
+  color: black;
+}
+a:visited{
+  color: black;
+}
+a:active{
+  color: black;
+}
+
+
+
+.rotate {
+/* Safari */
+-webkit-transform: rotate(-90deg);
+/* Firefox */
+-moz-transform: rotate(-90deg);
+/* IE */
+-ms-transform: rotate(-90deg);
+/* Opera */
+-o-transform: rotate(-90deg);
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}

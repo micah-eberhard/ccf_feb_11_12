@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BooksApp</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css" media="screen" title="no title" charset="utf-8">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row headerBar">
+        <div class="col-md-12">
+          <a href="/">
+            <img class="logo" src="http://clipartion.com/wp-content/uploads/2015/11/open-book-clip-art-black-and-white-free-clipart1.png" alt="" />
+            <h3 class="inline zero">Galvanize Reads</h3>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="spacer">
+
+    </div>
+    <%if (title !== 'Main') { %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-1">
+          <div class="spacer">
+
+          </div>
+          <div class="row">
+            <a href="/authors">
+              <div class="col-md-11 sidebarItem center">
+                <img class="sidebarImg" src="http://www.uglydogbooks.com/wp-content/uploads/2014/02/author_book.jpg" alt="" />
+                <h3 class="rotate pushLow">
+                  Authors
+                </h3>
+              </div>
+            </a>
+            <div class="col-md-1">
+            </div>
+          </div>
+          <div class="row">
+            <a href="/books">
+              <div class="col-md-11 sidebarItem center">
+                <img class="sidebarImg" src="http://cdn-media-1.lifehack.org/wp-content/files/2015/05/books-1.jpg" alt="" />
+                <h3 class="rotate pushLow">
+                  Books
+                </h3>
+              </div>
+            </a>
+            <div class="col-md-1">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1">
+
+        </div>
+        <div class="col-md-10 mainBody">
+    <% } %>

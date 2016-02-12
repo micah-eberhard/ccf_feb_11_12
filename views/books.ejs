@@ -1,0 +1,119 @@
+<% include _header.ejs %>
+<%for(var i=0; i < books.length; i++) { %>
+  <div class="row bookItem">
+    <div class="col-md-3">
+      <a href="/books/<%= books[i].id %>"><img class="displayImg" src="<%= books[i].img_url %>" alt="" /></a>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-9">
+          <a href="/books/<%= books[i].id %>"><h2><%= books[i].title %></h2></a>
+          <strong>Authors:</strong>
+          <%for(var j=0; j < books[i].authors.length; j++) { %>
+            <span class="inline authorLine">
+              <a href="/authors/<%= books[i].authors[j].id %>">
+                <%= books[i].authors[j].first_name %> <%= books[i].authors[j].last_name %><% if(j < books[i].authors.length -1){ %>,<% } %>
+              </a>
+            </span>
+          <% } %>
+          <p>
+            <strong><%= books[i].genre %></strong>
+          </p>
+        </div>
+        <div class="col-md-3">
+          <a href="/books/<%= books[i].id %>/edit"><button class="editBtn" type="button" name="button">Edit</button></a>
+          <a href="/books/<%= books[i].id %>/delete"><button class="delBtn" type="button" name="button">Delete</button></a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p>
+            <%= books[i].description %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% if(type === 'edit'){ %>
+    <div class="row">
+      <div class="col-md-12">
+        <form class="" action="/books/<%= books[i].id %>/edit" method="post">
+          <div class="row">
+            <div class="col-md-1">
+              <label for="">Title: </label>
+            </div>
+            <div class="col-md-11">
+              <input type="text" name="title" placeholder="Title" value="<%= books[i].title %>">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-1">
+              <label for="">Genre: </label>
+            </div>
+            <div class="col-md-11">
+              <input type="text" name="genre" placeholder="Genre" value="<%= books[i].genre %>">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-1">
+              <label for="">Description: </label>
+            </div>
+            <div class="col-md-11">
+              <input type="text" name="description" placeholder="Description" value="<%= books[i].description %>">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-1">
+              <label for="">ImageURL: </label>
+            </div>
+            <div class="col-md-11">
+              <input type="text" name="img_url" placeholder="Image" value="<%= books[i].img_url %>">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 assocBox">
+              <div class="row botBorder">
+                <div class="col-md-12">
+                  <strong>Authors:</strong>
+                </div>
+              </div>
+              <% for(var k=0; k < books[i].authors.length; k++ ){ %>
+                <div class="row">
+                  <div class="col-md-10">
+                    <%= books[i].authors[k].first_name %> <%= books[i].authors[k].last_name %>
+                  </div>
+                  <div class="col-md-2">
+                    <a href="#<% delete books[i].authors[k] %>" class="glyphicon glyphicon-remove"></a>
+                  </div>
+                </div>
+              <% } %>
+            </div>
+            <div class="row">
+              <select class="" name="">
+                <% for(var v=0; v < authList.length; v++ ){ %>
+                  <option value="<%= authList[v].first_name %>,<%= authList[v].last_name %>"><%= authList[v].first_name %> <%= authList[v].last_name %></option>
+                <% } %>
+              </select>
+              <button type="button" name="button">Add Author</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <button class="editSub" type="submit" name="button">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  <% } %>
+  <% if(type === 'delete'){ %>
+    <div class="row">
+      <div class="col-md-12">
+        <a href="/books/<%= books[i].id %>/delete"><button class="deleteSub" type="submit" value="true" name="button">Really Delete This Book?</button></a>
+      </div>
+    </div>
+  <% } %>
+<% } %>
+
+
+<% include _footer.ejs %>

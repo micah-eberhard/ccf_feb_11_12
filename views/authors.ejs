@@ -1,0 +1,124 @@
+<% include _header.ejs %>
+<%for(var i=0; i < authors.length; i++) { %>
+  <div class="row authorItem">
+    <div class="col-md-3">
+      <a href="/authors/<%= authors[i].id %>">
+        <img class="displayImg" src="<%= authors[i].img_url %>" alt="" />
+      </a>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-9">
+          <a href="/authors/<%= authors[i].id %>">
+          <h2><%= authors[i].first_name %> <%= authors[i].last_name %></h2>
+        </a>
+          <p>
+          </p>
+        </div>
+        <div class="col-md-3">
+          <a href="/authors/<%= authors[i].id %>/edit"><button class="editBtn" type="button" name="button">Edit</button></a>
+          <a href="/authors/<%= authors[i].id %>/delete"><button class="delBtn" type="button" name="button">Delete</button></a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p>
+            <%= authors[i].biography %>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-10 assocBox">
+          <div class="row botBorder">
+            <div class="col-md-12">
+              <strong>Books:</strong>
+            </div>
+          </div>
+          <% for(var j=0; j < authors[i].books.length; j++ ){ %>
+            <div class="row">
+              <div class="col-md-10">
+                <a href="/books/<%= authors[i].books[j].id %>"><%= authors[i].books[j].title %></a>
+              </div>
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% if(type === 'edit'){ %>
+    <div class="row">
+      <div class="col-md-12">
+        <form class="" action="/authors/<%= authors[i].id %>/edit" method="post">
+          <div class="row">
+            <div class="col-md-1">
+              <label for="">First Name: </label>
+            </div>
+            <div class="col-md-11">
+              <input type="text" name="first_name" placeholder="First Name" value="<%= authors[i].first_name %>">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-1">
+              <label for="">Last Name: </label>
+            </div>
+            <div class="col-md-11">
+              <input type="text" name="last_name" placeholder="Last Name" value="<%= authors[i].last_name %>">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-1">
+              <label for="">Biography: </label>
+            </div>
+            <div class="col-md-11">
+              <input type="text" name="biography" placeholder="Biography" value="<%= authors[i].biography %>">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-1">
+              <label for="">ImageURL: </label>
+            </div>
+            <div class="col-md-11">
+              <input type="text" name="img_url" placeholder="Image" value="<%= authors[i].img_url %>">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 assocBox">
+              <div class="row botBorder">
+                <div class="col-md-12">
+                  <strong>Books:</strong>
+                </div>
+              </div>
+              <% for(var k=0; k < authors[i].books.length; k++ ){ %>
+                <div class="row">
+                  <div class="col-md-10">
+                    <%= authors[i].books[k].title %>
+                  </div>
+                  <div class="col-md-2">
+                    <a href="#<% delete authors[i].books[k] %>" class="glyphicon glyphicon-remove"></a>
+                  </div>
+                </div>
+              <% } %>
+            </div>
+            <div class="row">
+              <select class="" name="">
+                <% for(var v=0; v < bookList.length; v++ ){ %>
+                  <option value="<%= bookList[v].title %>"><%= bookList[v].title %></option>
+                <% } %>
+              </select>
+              <button type="button" name="button">Add Book</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <button class="editSub" type="submit" name="button">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  <% } %>
+
+<% } %>
+
+
+<% include _footer.ejs %>
