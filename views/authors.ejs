@@ -34,12 +34,14 @@
               <strong>Books:</strong>
             </div>
           </div>
-          <% for(var j=0; j < authors[i].books.length; j++ ){ %>
-            <div class="row">
-              <div class="col-md-10">
-                <a href="/books/<%= authors[i].books[j].id %>"><%= authors[i].books[j].title %></a>
+          <% if(typeof authors[i].books == 'object') { %>
+            <% for(var j=0; j < authors[i].books.length; j++ ){ %>
+              <div class="row">
+                <div class="col-md-10">
+                  <a href="/books/<%= authors[i].books[j].id %>"><%= authors[i].books[j].title %></a>
+                </div>
               </div>
-            </div>
+            <% } %>
           <% } %>
         </div>
       </div>
@@ -88,15 +90,17 @@
                   <strong>Books:</strong>
                 </div>
               </div>
-              <% for(var k=0; k < authors[i].books.length; k++ ){ %>
-                <div class="row">
-                  <div class="col-md-10">
-                    <%= authors[i].books[k].title %>
+              <% if(typeof authors[i].books == 'object') { %>
+                <% for(var k=0; k < authors[i].books.length; k++ ){ %>
+                  <div class="row">
+                    <div class="col-md-10">
+                      <%= authors[i].books[k].title %>
+                    </div>
+                    <div class="col-md-2">
+                      <a href="#<% delete authors[i].books[k] %>" class="glyphicon glyphicon-remove"></a>
+                    </div>
                   </div>
-                  <div class="col-md-2">
-                    <a href="#<% delete authors[i].books[k] %>" class="glyphicon glyphicon-remove"></a>
-                  </div>
-                </div>
+                <% } %>
               <% } %>
             </div>
             <div class="row">
@@ -117,7 +121,15 @@
       </div>
     </div>
   <% } %>
-
+  <% if(type === 'delete'){ %>
+    <div class="row">
+      <div class="col-md-12">
+        <form class="" action="/authors/<%= authors[i].id %>/delete" method="post">
+          <button class="deleteSub" type="submit" value="true" name="delete">Really Delete This Author?</button>
+        </form>
+      </div>
+    </div>
+  <% } %>
 <% } %>
 
 
