@@ -59,7 +59,42 @@ fs.readFile('data.txt',function(err, data){
           {
             console.log(err);
           }
-          console.log('Authors Updated');
+          else {
+            for (var h=0; h < authors.length; h++)
+            {
+              knex('authors').select('id').where({first_name:authors[h].first_name, last_name:authors[h].last_name})
+              .then(function(dataInner,err){
+                if(err)
+                {
+                  console.log(err);
+                }
+                else {
+                  knex('author_books').insert({author_id:dataInner.id, book_id:bookObj.id})
+                  .then(function(data,err){
+                    if(err)
+                    {
+                      console.log(err);
+                    }
+                    else {
+                      console.log('Authors Updated');
+                    }
+                  });
+                }
+              });
+            }
+            /*
+            knex('author_books').insert({author_id:authors[m], bookObj.id})
+            .then(function(data,err){
+              if(err)
+              {
+                console.log(err);
+              }
+              console.log('Authors Updated');
+            });
+            */
+            console.log(data);
+          }
+          //console.log('Authors Updated');
         });
         /*
         knex('author_books').insert({author_id:authors[m], bookObj.id})
