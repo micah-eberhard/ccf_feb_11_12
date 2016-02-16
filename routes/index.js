@@ -1,8 +1,9 @@
+require('dotenv').load();
 var express = require('express');
 var router = express.Router();
 var knex = require('knex')({
   client: 'pg',
-  connection: 'postgress://localhost:5432/ccfBooks'
+  connection: process.env.DATABASE_URL
 });
 
 function checkErr(err)
