@@ -10,7 +10,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var knex = require('knex')({
   client: 'pg',
-  connection: 'postgress://localhost:5432/ccfBooks'
+  connection: process.env.DATABASE_URL
 });
 
 var app = express();
